@@ -1,11 +1,11 @@
-import schedule from 'node-schedule';
-import Summarizer from 'summarizer';
+var schedule = require('node-schedule');
+var Summarizer = require('summarizer');
 
-const newsApiKey = process.env.NEWSAPI_API_KEY;
+var newsApiKey = process.env.NEWSAPI_API_KEY;
 
 function scheduleJob(jobTitle, rule) {
   console.log(`>>> ${jobTitle} begun`);
-  const job = schedule.scheduleJob(rule, () => {
+  var job = schedule.scheduleJob(rule, () => {
     console.log('newsApiKey!', newsApiKey);
   });
 }
@@ -19,9 +19,9 @@ function scheduleJob(jobTitle, rule) {
 // # |  |  |  |  .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat
 // # |  |  |  |  |
 // # *  *  *  *  * user-name  command to be executed
-const rule = '* * * * *';
+var rule = '* * * * *';
 
-const jobTitle = 'get the news';
+var jobTitle = 'get the news';
 
 (() => {
   scheduleJob.({ jobTitle, rule });

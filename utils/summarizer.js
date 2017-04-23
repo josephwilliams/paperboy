@@ -1,4 +1,4 @@
-import SummaryTool from 'node-summary';
+const SummaryTool = require('node-summary');
 
 export default function summarize(title, content) => {
   SummaryTool.summarize(title, content, (err, summary) => {
