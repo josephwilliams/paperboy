@@ -24,5 +24,5 @@ var rule = '* * * * *';
 var jobTitle = 'get the news';
 
 (() => {
-  scheduleJob.({ jobTitle, rule });
+  scheduleJob.(jobTitle, rule);
 })();
