@@ -6,7 +6,7 @@ const newsApiKey = process.env.NEWSAPI_API_KEY;
 
 const requestUrlSourceStr = 'source=' + 'the-next-web';
 const requestUrlSortByStr = 'sortBy=' + 'latest';
-const requestUrlNewsApiOrgApiKey = '&apiKey=' + newsApiKey;
+const requestUrlNewsApiOrgApiKey = '&apiKey=' + '1a6703eeb05a4cf78fa9968bbabd44d4';
 const requestUrlStr = (
   'https://newsapi.org/v1/articles?' +
   requestUrlSourceStr +
@@ -20,7 +20,7 @@ const requestUrlStr = (
 // 	.then(body => console.log(body));
 
 async function getNewsFromNewsOrgApi() {
-  console.log('>>> news api key: ', newsApiKey);
+  // console.log('>>> news api key: ', newsApiKey);
   try {
     const response = await fetch(requestUrlStr);
     const json = await response.json();
