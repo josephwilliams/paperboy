@@ -7,8 +7,8 @@ const APP = {
     rule = '* * * * *'
 
     // Kick off the job
-    const job = schedule.scheduleJob(rule, function() {
-      console.log('ping!')
+    const job = schedule.scheduleJob(rule, () => {
+      console.log('ping!');
     });
   };
 
