@@ -4,13 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "babel-node --presets es2015 app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "node-schedule": "^1.2.1"
+    "express": "^4.15.2",
+    "node-fetch": "^1.6.3",
+    "node-schedule": "^1.2.1",
+    "thunks": "^4.7.6"
   }
 }
