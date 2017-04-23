@@ -5,7 +5,7 @@ require('dotenv').config({path: __dirname + '/.env'});
 const newsApiKey = process.env.NEWSAPI_API_KEY;
 
 const requestUrlSourceStr = 'source=' + 'the-washington-post'; // WaPo
-const requestUrlSortByStr = 'sortBy=' + 'top'; // or 'latest'
+const requestUrlSortByStr = '&sortBy=' + 'top'; // or 'latest'
 const requestUrlNewsApiOrgApiKey = '&apiKey=' + '1a6703eeb05a4cf78fa9968bbabd44d4';
 const requestUrlStr = (
   'https://newsapi.org/v1/articles?' +
