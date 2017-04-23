@@ -1,29 +1,23 @@
-import schedule from 'node-schedule';
+// Reference the node-schedule npm package.
+var schedule = require('node-schedule');
 
-const SchedulerApp = {
+var APP = {
   scheduleJob: function() {
-    // http://stackoverflow.com/a/5398044/1252653
-    // # .---------------- minute (0 - 59)
-    // # |  .------------- hour (0 - 23)
-    // # |  |  .---------- day of month (1 - 31)
-    // # |  |  |  .------- month (1 - 12) OR jan,feb,mar,apr ...
-    // # |  |  |  |  .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat
-    // # |  |  |  |  |
-    // # *  *  *  *  * user-name  command to be executed
-    // # '* * * * *' is once per minute
-    const rule = '* * * * *';
+    // This rule is standard cron syntax for once per minute.
+    // See http://stackoverflow.com/a/5398044/1252653
+    rule = '* * * * *'
 
-    // Start the job
-    const job = schedule.scheduleJob(rule, () => {
-      console.log('ping!');
+    // Kick off the job
+    var job = schedule.scheduleJob(rule, function() {
+      console.log('ping!')
     });
   },
 
   init: function() {
-    SchedulerApp.scheduleJob();
+    APP.scheduleJob();
   }
 };
 
 (function(){
-  SchedulerApp.init();
+  APP.init();
 })();
