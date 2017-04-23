@@ -24,6 +24,7 @@ async function getNewsFromNewsOrgApi() {
   try {
     const response = await fetch(requestUrlStr);
     const json = await response.json();
+    console.log('>>> response', json);
   }
   catch (error) {
     console.log('>> getNewsFromNewsOrgApi error', error);
