@@ -1,22 +1,22 @@
-var schedule = require('node-schedule');
+import schedule from 'node-schedule';
 
-var APP = {
-  scheduleJob: function() {
+const APP = {
+  const scheduleJob = () => {
     // This rule is standard cron syntax for once per minute.
     // See http://stackoverflow.com/a/5398044/1252653
     rule = '* * * * *'
 
     // Kick off the job
-    var job = schedule.scheduleJob(rule, function() {
+    const job = schedule.scheduleJob(rule, function() {
       console.log('ping!')
     });
-  },
+  };
 
-  init: function() {
+  const init = () => {
     APP.scheduleJob();
-  }
+  };
 };
 
-(function(){
+(() => {
   APP.init();
 })();
