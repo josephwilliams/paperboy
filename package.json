@@ -7,7 +7,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "node --harmony --use_strict --harmony_generators ./app.js",
+    "start": "./node_modules/.bin/babel-node ./app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
