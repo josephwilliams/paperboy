@@ -1,9 +1,9 @@
-const schedule = require('node-schedule');
-const Summarizer = require('./utils/summarizer');
+import schedule from 'node-schedule';
+import Summarizer from './utils/summarizer';
 
 const newsApiKey = process.env.NEWSAPI_API_KEY;
 
-function scheduleJob(jobTitle, rule) {
+function scheduleJob({ jobTitle, rule }) {
   console.log(`>>> ${jobTitle} begun`);
   schedule.scheduleJob(rule, () => {
     console.log('newsApiKey!', newsApiKey);
