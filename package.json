@@ -16,6 +16,7 @@
     "babel-preset-node6": "^11.0.0",
     "node-fetch": "^1.6.3",
     "node-schedule": "^1.2.1",
+    "node-summary": "^1.1.0",
     "thunks": "^4.7.6"
   }
 }
