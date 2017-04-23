@@ -1,5 +1,5 @@
 const schedule = require('node-schedule');
-const Summarizer = require('summarizer');
+const Summarizer = require('./utils/summarizer');
 
 const newsApiKey = process.env.NEWSAPI_API_KEY;
 
