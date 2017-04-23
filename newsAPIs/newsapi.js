@@ -22,7 +22,7 @@ const requestUrlStr = (
 async function getNewsFromNewsOrgApi() {
   // console.log('>>> news api key: ', newsApiKey);
   try {
-    const response = await fetch(requestUrlStr);
+    const response = await fetch('');
     const json = await response.json();
     console.log('>>> response', json);
   }
