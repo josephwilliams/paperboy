@@ -1,5 +1,5 @@
-import schedule from 'node-schedule';
-import Summarizer from './utils/summarizer';
+const schedule = require('node-schedule');
+const Summarizer = require('./utils/summarizer');
 
 const newsApiKey = process.env.NEWSAPI_API_KEY;
 
