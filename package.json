@@ -7,7 +7,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "./node_modules/.bin/babel-node ./app.js",
+    "start": "./node_modules/.bin/babel-node ./schedulerApp.js && node ./webServer",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -22,8 +22,10 @@
   },
   "homepage": "https://github.com/josephwilliams/paperboy#readme",
   "dependencies": {
+    "body-parser": "^1.17.1",
     "dotenv": "^4.0.0",
     "express": "^4.15.2",
+    "mongodb": "^2.2.26",
     "node-fetch": "^1.6.3",
     "node-schedule": "^1.2.1",
     "node-summary": "^1.1.0"

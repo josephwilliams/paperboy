@@ -1,1 +1,2 @@
-worker: node app.js
+worker: node schedulerApp.js
+web: node webServer.js
