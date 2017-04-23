@@ -1,6 +1,9 @@
 const schedule = require('node-schedule');
 const Summarizer = require('./utils/summarizer');
 
+// instantiate dotenv, opening up 'process.env'
+require('dotenv').config();
+
 const newsApiKey = process.env.NEWSAPI_API_KEY;
 
 function scheduleJob({ jobTitle, rule }) {
