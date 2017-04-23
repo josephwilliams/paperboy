@@ -1,25 +1,33 @@
 const fetch = require('node-fetch');
-const thunks = require('thunks');
 
+// instantiate dotenv, opening up 'process.env'
+require('dotenv').config();
+const newsApiKey = process.env.NEWSAPI_API_KEY;
 
-fetch('https://github.com/')
-	.then(res => res.text())
-	.then(body => console.log(body));
+const requestUrlSourceStr = 'source=' + 'the-next-web';
+const requestUrlSortByStr = 'sortBy=' + 'latest';
+const requestUrlNewsApiOrgApiKey = '&apiKey=' + newsApiKey;
+const requestUrlStr = (
+  'https://newsapi.org/v1/articles?' +
+  requestUrlSourceStr +
+  requestUrlSortByStr +
+  requestUrlNewsApiOrgApiKey
+);
 
+// fetch example usage
+// fetch(requestUrlStr)
+// 	.then(res => res.text())
+// 	.then(body => console.log(body));
 
-	const asyncThunkTest = () => {
-  return async (dispatch, getState) => {
-    dispatch({ type: 'fruit', name: 'banana', value: 'yellow' })
-
-    try {
-      const response = await fetch('https://jsonplaceholder.typicode.com/posts')
-      const json = await response.json()
-      dispatch({ type: 'json', name: 'posts', value: json })
-    } catch (e) {
-      dispatch({ type: 'error', name: 'error', value: e.message })
-    }
-
-    dispatch({ type: 'vegetable', name: 'carrot', value: 'orange' })
-    console.log('state: ', getState())
+async function getNewsFromNewsOrgApi() {
+  console.log('>>> news api key: ', newsApiKey);
+  try {
+    const response = await fetch(requestUrlStr);
+    const json = await response.json();
+  }
+  catch (error) {
+    console.log('>> getNewsFromNewsOrgApi error', error);
   }
 }
+
+module.exports = getNewsFromNewsOrgApi;
