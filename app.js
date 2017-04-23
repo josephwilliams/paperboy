@@ -1,4 +1,4 @@
-import Scheduler from 'node-schedule';
+import schedule from 'node-schedule';
 import Summarizer from 'summarizer';
 
 const newsApiKey = process.env.NEWSAPI_API_KEY;
@@ -10,7 +10,7 @@ const Scheduler = {
     const rule = '* * * * *';
 
     // Kick off the job
-    const job = scheduleJob(rule, () => {
+    const job = schedule.scheduleJob(rule, () => {
       console.log('newsApiKey!', newsApiKey);
     });
   };
