@@ -1,7 +1,5 @@
 const fetch = require('node-fetch');
 
-// instantiate dotenv, opening up 'process.env'
-require('dotenv').config();
 const newsApiKey = process.env.NEWSAPI_API_KEY;
 
 const requestUrlSourceStr = 'source=' + 'the-next-web';

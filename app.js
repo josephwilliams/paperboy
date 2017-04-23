@@ -2,8 +2,14 @@ const schedule = require('node-schedule');
 const getNewsFromNewsOrgApi = require('./newsAPIs/newsapi');
 const Summarizer = require('./utils/summarizer');
 
-function scheduleJob({ jobTitle, rule }) {
-  console.log(`>>> ${jobTitle} begun`);
+function scheduleJob(rule) {
+  // call scheduleJob function
+  console.log(`>>> scheduler initialized`);
+
+  // instantiate dotenv, opening up 'process.env'
+  require('dotenv').config();
+
+  // begin async requests in getNewsFromNewsOrgApi func
   schedule.scheduleJob(rule, () => {
     getNewsFromNewsOrgApi();
   });
@@ -20,8 +26,6 @@ function scheduleJob({ jobTitle, rule }) {
 // # *  *  *  *  * user-name  command to be executed
 const rule = '* * * * *';
 
-const jobTitle = 'get the news';
-
 (() => {
-  scheduleJob({ jobTitle, rule });
+  scheduleJob(rule);
 })();
