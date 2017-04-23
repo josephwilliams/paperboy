@@ -1,7 +1,7 @@
 const SummaryTool = require('node-summary');
 
-function summarize(title, content) => {
-  SummaryTool.summarize(title, content, (err, summary) => {
+function summarize(title, content) {
+  SummaryTool.summarize(title, content, function(err, summary) {
   	if (err) {
       console.log("Something went wrong man!");
     }
