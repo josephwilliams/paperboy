@@ -5,7 +5,7 @@ const newsApiKey = process.env.NEWSAPI_API_KEY;
 
 function scheduleJob(jobTitle, rule) {
   console.log(`>>> ${jobTitle} begun`);
-  const job = schedule.scheduleJob(rule, () => {
+  schedule.scheduleJob(rule, () => {
     console.log('newsApiKey!', newsApiKey);
   });
 }
