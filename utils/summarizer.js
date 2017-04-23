@@ -1,6 +1,6 @@
 const SummaryTool = require('node-summary');
 
-export default function summarize(title, content) => {
+function summarize(title, content) => {
   SummaryTool.summarize(title, content, (err, summary) => {
   	if (err) {
       console.log("Something went wrong man!");
@@ -20,3 +20,5 @@ export default function summarize(title, content) => {
     };
   });
 }
+
+module.exports = summarize;
