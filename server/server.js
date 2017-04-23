@@ -10,7 +10,7 @@ app.use(bodyParser.json());
 
 // Create a database constiable outside of the database connection callback
 // to reuse the connection pool in your app.
-const db;
+let db;
 
 // Connect to the database before starting the application server.
 mongodb.MongoClient.connect(process.env.MONGODB_URI, function (err, database) {
@@ -30,6 +30,7 @@ mongodb.MongoClient.connect(process.env.MONGODB_URI, function (err, database) {
   });
 });
 
+
 // API ROUTES
 
 // Generic error handler used by all endpoints.
@@ -48,23 +49,12 @@ app.get("/api/snippets", function(req, res) {
   });
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//
+app.get("/api/snippets/:id", function(req, res) {
+  db.collection(SNIPPETS_COLLECTION).findOne({ _id: new ObjectID(req.params.id) }, function(err, doc) {
+    if (err) {
+      handleError(res, err.message, "Failed to get contact");
+    } else {
+      res.status(200).json(doc);
+    }
+  });
+});
