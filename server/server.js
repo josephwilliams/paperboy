@@ -21,23 +21,21 @@ mongodb.MongoClient.connect(process.env.MONGODB_URI, function (err, database) {
 
   // Save database object from the callback for reuse.
   db = database;
-  console.log("Database connection ready");
-
-  // Initialize the app.
-  const server = app.listen(process.env.PORT || 8080, function () {
-    const port = server.address().port;
-    console.log("App now running on port", port);
-  });
 });
 
-
-// API ROUTES
+// Initialize the app.
+const server = app.listen(process.env.PORT || 8080, function () {
+  const port = server.address().port;
+  console.log("App now running on port", port);
+});
 
 // Generic error handler used by all endpoints.
 function handleError(res, reason, message, code) {
   console.log("ERROR: " + reason);
   res.status(code || 500).json({"error": message});
 }
+
+// API ROUTES
 
 app.get("/api/snippets", function(req, res) {
   db.collection(SNIPPETS_COLLECTION).find({}).toArray(function(err, snippets) {
