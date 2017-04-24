@@ -21,8 +21,14 @@ const requestUrlStr = (
   requestUrlNewsApiOrgApiKey
 );
 
+// sample WaPo api response:
+// { status: ok, source: ..., sortBy: ..., articles:
+// 10 objects in an array
+// urlToImage, author, title, description, publishedAt
+
 async function getNewsFromNewsOrgApi() {
   try {
+    console.log('>> getNewsFromNewsOrgApi called');
     const response = await fetch(requestUrlStr);
     const json = await response.json();
     console.log('>>> db', db);
@@ -36,9 +42,3 @@ async function getNewsFromNewsOrgApi() {
 }
 
 module.exports = getNewsFromNewsOrgApi;
-
-
-// sample WaPo api response:
-// { status: ok, source: ..., sortBy: ..., articles:
-// 10 objects in an array
-// urlToImage, author, title, description, publishedAt

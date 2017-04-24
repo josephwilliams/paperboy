@@ -36,7 +36,6 @@ function handleError(res, reason, message, code) {
 }
 
 // API ROUTES
-
 app.get("/api/snippets", function(req, res) {
   db.collection(SNIPPETS_COLLECTION).find({}).toArray(function(err, snippets) {
     if (err) {

@@ -21,7 +21,7 @@ function scheduleJob(rule) {
 // # *  *  *  *  * user-name  command to be executed
 // '* * * * *' is every minute
 // '5 * * * *' is every 5 minutes
-const rule = '2 * * * *';
+const rule = '* * * * *';
 
 (() => {
   scheduleJob(rule);
