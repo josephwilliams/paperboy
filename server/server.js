@@ -49,7 +49,7 @@ app.get("/api/snippets", function(req, res) {
 app.get("/api/snippets/:id", function(req, res) {
   db.collection(SNIPPETS_COLLECTION).findOne({ _id: new ObjectID(req.params.id) }, function(err, doc) {
     if (err) {
-      handleError(res, err.message, "Failed to get contact");
+      handleError(res, err.message, "Failed to get snippet");
     } else {
       res.status(200).json(doc);
     }
