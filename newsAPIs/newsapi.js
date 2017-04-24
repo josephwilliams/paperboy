@@ -3,28 +3,21 @@ const fetch = require('node-fetch');
 
 const SNIPPETS_COLLECTION = "snippets";
 
-function dbClient() {
-  // Create a database constiable outside of the database connection callback
-  // to reuse the connection pool in your app.
-  let db;
+// Create a database constiable outside of the database connection callback
+// to reuse the connection pool in your app.
+let db;
 
-  // Connect to the database before starting the application server.
-  mongodb.MongoClient.connect(process.env.MONGODB_URI, (err, database) => {
-    if (err) {
-      console.log(err);
-      process.exit(1);
-    }
+// Connect to the database before starting the application server.
+mongodb.MongoClient.connect(process.env.MONGODB_URI, (err, database) => {
+  if (err) {
+    console.log(err);
+    process.exit(1);
+  }
 
-    // Save database object from the callback for reuse.
-    db = database;
-    console.log("dbConnector on");
-  });
+  // Save database object from the callback for reuse.
+  db = database;
+});
 
-  return db;
-}
-
-// get database object for later use
-const db = dbClient();
 
 // instantiate dotenv, opening up 'process.env'
 require('dotenv').config({path: __dirname + '/.env'});
