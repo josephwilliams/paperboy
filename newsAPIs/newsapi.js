@@ -1,4 +1,6 @@
 const fetch = require('node-fetch');
+const mongodb = require("mongodb");
+const ObjectID = mongodb.ObjectID;
 // const dbClient = require('../utils/dbClient');
 
 const SNIPPETS_COLLECTION = "snippets";
