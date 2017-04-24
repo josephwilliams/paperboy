@@ -1,12 +1,11 @@
 const schedule = require('node-schedule');
-const getNewsFromNewsOrgApi = require('./api/newsapi');
+const getNewsByNewsApiAsyncCalls = require('./api/getNewsByNewsApiAsyncCalls');
 const Summarizer = require('./utils/summarizer');
 
 
 function scheduleJob(rule) {
-  // begin async requests in getNewsFromNewsOrgApi func
   schedule.scheduleJob(rule, () => {
-    getNewsFromNewsOrgApi();
+    getNewsByNewsApiAsyncCalls();
   });
 }
 
