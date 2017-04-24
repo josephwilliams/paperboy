@@ -32,9 +32,10 @@ async function getNewsFromNewsOrgApi() {
     const response = await fetch(requestUrlStr);
     const json = await response.json();
     console.log('>>> db', db);
-    console.log('>>> response', json);
     const articles = json.articles;
+    console.log('>>>> articles', articles.length);
     db.collection(SNIPPETS_COLLECTION).insertMany(articles);
+    console.log('>>>>> good post');
   }
   catch (error) {
     console.log('>> getNewsFromNewsOrgApi error', error);
