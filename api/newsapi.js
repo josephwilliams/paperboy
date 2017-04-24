@@ -43,7 +43,7 @@ const requestUrlStr = (
 async function getNewsFromNewsOrgApi() {
   try {
     console.log('>> getNewsFromNewsOrgApi called');
-    const response = await fetch(requestUrlStr);
+    const response = await fetch('requestUrlStr');
     const json = await response.json();
     console.log('>>> db', db);
     const articles = json.articles;
