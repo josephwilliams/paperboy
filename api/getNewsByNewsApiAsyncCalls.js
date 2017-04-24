@@ -8,6 +8,9 @@ const requestUrls = require('./requestUrls');
 
 const SNIPPETS_COLLECTION = "snippets";
 
+// instantiate dotenv, opening up 'process.env'
+require('dotenv').config({path: __dirname + '../.env'});
+
 let db;
 // Connect to the database before starting the application server.
 mongodb.MongoClient.connect(process.env.MONGODB_URI, (err, database) => {
